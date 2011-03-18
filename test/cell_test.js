@@ -23,7 +23,14 @@ TestCase("CellTest", {
   "test minedCell has mine": function () {
     assertTrue(
       "minedCell should have a mine",
-      this.minedCell.hasMine;
+      this.minedCell.hasMine
+    );
+  },
+
+  "test cell by default has no mine": function () {
+    assertFalse(
+      "emptyCell should not have a mine",
+      this.emptyCell.hasMine
     );
   }
 
