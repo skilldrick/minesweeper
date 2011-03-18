@@ -16,15 +16,24 @@ var Board = function (width, height) {
     return x >= 0 && x < width && y >= 0 && y < height;
   }
 
+  function getCell(x, y) {
+    if (checkBounds(x, y)) {
+      return cellGrid[x][y];
+    }
+  }
+
+  function getNeighbours(x, y) {
+    if (checkBounds(x, y)) {
+      return 0;
+    }
+  }
+
   init();
 
   return {
     width: width,
     height: height,
-    getCell: function (x, y) {
-      if (checkBounds(x, y)) {
-        return cellGrid[x][y];
-      }
-    }
+    getCell: getCell,
+    getNeighbours: getNeighbours
   };
 };

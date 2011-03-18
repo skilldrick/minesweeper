@@ -20,19 +20,27 @@ TestCase("CellTest", {
     assertTrue("cell should turn exposed", this.emptyCell.exposed);
   },
 
+  "test cell by default has no mine": function () {
+    assertFalse(
+      "emptyCell should not have a mine",
+      this.emptyCell.hasMine
+    );
+  },
+
+  "test mine can be set": function () {
+    this.emptyCell.setMine();
+    assertTrue(
+      "emptyCell should now have mine",
+      this.emptyCell.hasMine
+    );
+  },
+
   "test minedCell has mine": function () {
     assertTrue(
       "minedCell should have a mine",
       this.minedCell.hasMine
     );
   },
-
-  "test cell by default has no mine": function () {
-    assertFalse(
-      "emptyCell should not have a mine",
-      this.emptyCell.hasMine
-    );
-  }
 
 
 });

@@ -6,3 +6,7 @@ var Cell = function (hasMine) {
 Cell.prototype.expose = function () {
   this.exposed = true;
 };
+
+Cell.prototype.setMine = function () {
+  this.hasMine = true;
+};

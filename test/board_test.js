@@ -84,4 +84,21 @@ TestCase("BoardTest", {
     );
   },
 
+  "test cell with no mine-neighbours": function () {
+    assertEquals(
+      "Cell should have no neighbours",
+      0,
+      this.board.getNeighbours(1, 1)
+    );
+  },
+/*
+  "test cell with one mine-neighbour": function () {
+    this.board.getCell(0, 0).setMine();
+    assertEquals(
+      "Cell should have one neighbour",
+      1,
+      this.board.getNeighbours(1, 1)
+    );
+  },
+*/
 });
