@@ -64,6 +64,24 @@ TestCase("BoardTest", {
         cell
       );
     });
+  },
+
+  "test getCell returns different cells for different locations":
+  function () {
+    assertNotSame(
+      "Cells should be different",
+      this.board.getCell(0, 1),
+      this.board.getCell(1, 1)
+    );
+  },
+
+  "test getCell returns same cell for same location":
+  function () {
+    assertSame(
+      "Cells should be same",
+      this.board.getCell(1, 1),
+      this.board.getCell(1, 1)
+    );
   }
 
 });
