@@ -82,6 +82,6 @@ TestCase("BoardTest", {
       this.board.getCell(1, 1),
       this.board.getCell(1, 1)
     );
-  }
+  },
 
 });
