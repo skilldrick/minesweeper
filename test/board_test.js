@@ -5,6 +5,8 @@ TestCase("BoardTest", {
     this.board = Board(this.width, this.height);
   },
 
+  //take an array of cell coordinates and call callback on
+  //the corresponding cells
   loopCells: function (cells, callback) {
     var board = this.board;
 
