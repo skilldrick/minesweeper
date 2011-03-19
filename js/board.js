@@ -23,8 +23,23 @@ var Board = function (width, height) {
   }
 
   function getNeighbours(x, y) {
+    var neighbours = 0;
+    var cell;
     if (checkBounds(x, y)) {
-      return 0;
+      for (var xOffset = -1; xOffset <= 1; xOffset++) {
+        for (var yOffset = -1; yOffset <= 1; yOffset++) {
+          if (xOffset === 0 && yOffset === 0) {
+            //this is the cell itself
+            continue;
+          }
+          cell = getCell(x + xOffset, y + yOffset);
+          if (cell.hasMine) {
+            neighbours++;
+          }
+        }
+      }
+
+      return neighbours;
     }
   }
 

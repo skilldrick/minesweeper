@@ -6,13 +6,14 @@ TestCase("BoardTest", {
   },
 
   loopCells: function (cells, callback) {
-    var cell, cellX, cellY;
-    for (var i = 0, len = cells.length; i < len; i++) {
-      cellX = cells[i][0];
-      cellY = cells[i][1];
-      cell = this.board.getCell(cellX, cellY);
+    var board = this.board;
+
+    forEach(cells, function (cellCoords) {
+      var cellX = cellCoords[0];
+      var cellY = cellCoords[1];
+      var cell = board.getCell(cellX, cellY);
       callback(cellX, cellY, cell);
-    }
+    });
   },
 
   "test Board is object": function () {
@@ -91,7 +92,7 @@ TestCase("BoardTest", {
       this.board.getNeighbours(1, 1)
     );
   },
-/*
+
   "test cell with one mine-neighbour": function () {
     this.board.getCell(0, 0).setMine();
     assertEquals(
@@ -100,5 +101,15 @@ TestCase("BoardTest", {
       this.board.getNeighbours(1, 1)
     );
   },
-*/
+
+  "test cell with two mine-neighbours": function () {
+    this.board.getCell(0, 1).setMine();
+    this.board.getCell(2, 2).setMine();
+    assertEquals(
+      "Cell should have two neighbours",
+      2,
+      this.board.getNeighbours(1, 1)
+    );
+  },
+
 });
